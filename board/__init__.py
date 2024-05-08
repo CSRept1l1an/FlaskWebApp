@@ -4,7 +4,10 @@ from flask import Flask
 
 from board import pages, posts, database
 
-load_dotenv()
+try:
+    load_dotenv()
+except FileNotFoundError:
+    print("'.env' file not found. Using default environment variables.")
 
 
 def create_app():
